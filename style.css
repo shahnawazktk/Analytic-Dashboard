@@ -1,0 +1,41 @@
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #18191a;
+  color: #f1f3f4;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 60px 0;
+}
+
+.container-custom {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #232526;
+}
+::-webkit-scrollbar-thumb {
+  background: #343536;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 700;
+}
+
+/* Placeholder for section and animation styles */
+
+.invisible {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal {
+  opacity: 1;
+  transform: none;
+}
