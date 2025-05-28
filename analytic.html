@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>ShanII</span>
+            </div>
+            <div class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+                    <li><a href="#"><i class="fas fa-chart-pie"></i> <span>Analytics</span></a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> <span>Customers</span></a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> <span>Help</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="img/shahnawaz.jpg" alt="User Avatar">
+                        </div>
+                        <span>Shah Nawaz</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard">
+                <div class="page-title">
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back, shahnawaz! Here's what's happening today.</p>
+                </div>
+
+                <div class="stats-cards">
+                    <div class="card" data-aos="fade-up">
+                        <div class="card-icon" style="background-color: rgba(114, 124, 245, 0.2);">
+                            <i class="fas fa-users" style="color: #727cf5;"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>15,489</h3>
+                            <p>Total Users</p>
+                        </div>
+                        <div class="card-stat up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12.5%</span>
+                        </div>
+                    </div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-icon" style="background-color: rgba(90, 204, 138, 0.2);">
+                            <i class="fas fa-shopping-cart" style="color: #5acc8a;"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>$21,345</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                        <div class="card-stat up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8.3%</span>
+                        </div>
+                    </div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon" style="background-color: rgba(255, 190, 61, 0.2);">
+                            <i class="fas fa-chart-bar" style="color: #ffbe3d;"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>5,643</h3>
+                            <p>Total Orders</p>
+                        </div>
+                        <div class="card-stat up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>5.2%</span>
+                        </div>
+                    </div>
+                    <div class="card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-icon" style="background-color: rgba(245, 92, 132, 0.2);">
+                            <i class="fas fa-heart" style="color: #f55c84;"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>82.6%</h3>
+                            <p>Satisfaction Rate</p>
+                        </div>
+                        <div class="card-stat down">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>1.8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card" data-aos="fade-up">
+                        <div class="card-header">
+                            <h2>Revenue Overview</h2>
+                            <div class="time-filter">
+                                <button class="active">Daily</button>
+                                <button>Weekly</button>
+                                <button>Monthly</button>
+                            </div>
+                        </div>
+                        <div class="chart" id="revenueChart"></div>
+                    </div>
+                    <div class="chart-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-header">
+                            <h2>User Demographics</h2>
+                            <div class="dropdown">
+                                <button>Last 30 Days <i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart" id="userChart"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="table-card" data-aos="fade-up">
+                        <div class="card-header">
+                            <h2>Recent Transactions</h2>
+                            <button class="view-all">View All</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Customer</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#TX-2398</td>
+                                        <td>
+                                            <div class="customer">
+                                                <img src="img/shan.jpg" alt="Customer">
+                                                <span>Mujahid</span>
+                                            </div>
+                                        </td>
+                                        <td>Apr 25, 2025</td>
+                                        <td>$120.00</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TX-2397</td>
+                                        <td>
+                                            <div class="customer">
+                                                <img src="img/shahnawaz.jpg" alt="Customer">
+                                                <span>Hameed</span>
+                                            </div>
+                                        </td>
+                                        <td>Apr 24, 2025</td>
+                                        <td>$243.50</td>
+                                        <td><span class="status pending">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TX-2396</td>
+                                        <td>
+                                            <div class="customer">
+                                                <img src="img/shan.jpg" alt="Customer">
+                                                <span>shahnawaz</span>
+                                            </div>
+                                        </td>
+                                        <td>Apr 24, 2025</td>
+                                        <td>$54.20</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TX-2395</td>
+                                        <td>
+                                            <div class="customer">
+                                                <img src="img/shan.jpg" alt="Customer">
+                                                <span>Zahid</span>
+                                            </div>
+                                        </td>
+                                        <td>Apr 23, 2025</td>
+                                        <td>$189.99</td>
+                                        <td><span class="status failed">Failed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TX-2394</td>
+                                        <td>
+                                            <div class="customer">
+                                                <img src="img/shahnawaz.jpg" alt="Customer">
+                                                <span>Afnan Khhatak</span>
+                                            </div>
+                                        </td>
+                                        <td>Apr 23, 2025</td>
+                                        <td>$78.50</td>
+                                        <td><span class="status completed">Completed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
